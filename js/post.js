@@ -5,22 +5,27 @@ const postContainer = document.querySelector(".post-container")
 const postId = new URLSearchParams(window.location.search).get("postId")
 
 
-// getPost(postId)
-//     .then(post => {
-//         const article = document.createElement("article")
+getPost(postId)
+    .then(post => {
+        const article = document.createElement("article")
 
-//         // const body = post.body.replaceAll("/uploads", `${CMS_URL}/uploads`)
-//         // // article.innerHTML = marked(body)
-//         postContainer.appendChild(article)
+        // const body = post.body.replaceAll("/uploads", `${CMS_URL}/uploads`)
+        // // article.innerHTML = marked(body)
+        postContainer.appendChild(article)
 
-//         const titleContainer = document.createElement("div");
-//         titleContainer.innerHTML = `
-//         <div class="container post-title-and-paragraph">
-//             <h2>${post.title}</h2>
-//             <span>${post.subtitle}</span></div>
-//         `
+        const titleContainer = document.createElement("div");
+       
+        titleContainer.innerHTML = `
+        
+        <div class="container post-title-and-paragraph">
+        <h2>${post.title}</h2>
+        <span>${post.subtitle}</span>
+        <p>${post.body}</p>
+        </div>
+        
+        `
 
-//         article.appendChild(titleContainer)
-//         // // article.style.backgroundImage = `url(${CMS_URL}${post.coverPhoto.formats.small.url})`
-//     })
+        article.appendChild(titleContainer)
+        // // article.style.backgroundImage = `url(${CMS_URL}${post.coverPhoto.formats.small.url})`
+    })
 
