@@ -9,8 +9,6 @@ getPost(postId)
     .then(post => {
         const article = document.createElement("article")
 
-        // const body = post.body.replaceAll("/uploads", `${CMS_URL}/uploads`)
-        // // article.innerHTML = marked(body)
         postContainer.appendChild(article)
 
         const titleContainer = document.createElement("div");
@@ -24,8 +22,6 @@ getPost(postId)
         </div>
         
         `
-
         article.appendChild(titleContainer)
-        // // article.style.backgroundImage = `url(${CMS_URL}${post.coverPhoto.formats.small.url})`
     })
 

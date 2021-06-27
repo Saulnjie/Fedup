@@ -16,12 +16,10 @@ getPosts()
     .then((posts) => {
         posts.forEach((post) => {
             const article = document.createElement("article")
-            // article.innerHTML = marked(body)
             postContainer.appendChild(article)
  
             const titleContainer = document.createElement("div");
  
-
             titleContainer.innerHTML = `
             <a href="/post?postId=${post.id}">
             <div class="container post-title-and-paragraph">
