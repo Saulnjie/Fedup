@@ -22,11 +22,14 @@ getPosts(postId)
  
             const titleContainer = document.createElement("div");
  
+
             titleContainer.innerHTML = `
+            <a href="/posts?postId=${post.id}">
             <div class="container post-title-and-paragraph">
                 <h2>${post.title}</h2>
-                <span>${post.subtitle}</span></div>
+                <span>${post.subtitle}</span></div></a>
             `
             article.appendChild(titleContainer)
+             article.style.backgroundImage = `url(${CMS_URL}${post.coverPhoto.formats.small.url})` 
         })
     })
