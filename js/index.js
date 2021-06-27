@@ -10,15 +10,13 @@ export async function getPost(postId) {
     return await response.json()
 }
 
+const postId = new URLSearchParams(window.location.search).get("postId")
+const postContainer = document.querySelector(".post-container")
 
-getPosts()
-    .then(posts => {
-        allPosts = posts
-
+getPosts(postId)
+        .then(post => {
         const article = document.createElement("article")
-
-        const body = post.body.replaceAll("/uploads", `${CMS_URL}/uploads`)
-        article.innerHTML = marked(body)
+        // article.innerHTML = marked(body)
         postContainer.appendChild(article)
 
         const titleContainer = document.createElement("div");
@@ -28,7 +26,6 @@ getPosts()
             <h2>${post.title}</h2>
             <span>${post.subtitle}</span></div>
         `
-
-        banner.appendChild(titleContainer)
-        banner.style.backgroundImage = `url(${CMS_URL}${post.coverPhoto.formats.large.url})`
+        article.appendChild(titleContainer)
+        // article.style.backgroundImage = `url(${CMS_URL}${post.coverPhoto.formats.small.url})`
     })
